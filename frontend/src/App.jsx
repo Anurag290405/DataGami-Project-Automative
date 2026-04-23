@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
+
 export default function App() {
   const [prompt, setPrompt] = useState('Design a high-performance sports car with futuristic styling.')
   const [result, setResult] = useState(null)
@@ -9,7 +11,7 @@ export default function App() {
 
   const loadReports = async () => {
     try {
-      const response = await axios.get('/api/reports')
+      const response = await axios.get(`${API_BASE_URL}/api/reports`)
       setReports(response.data)
     } catch (err) {
       console.error('Failed to load reports:', err)
@@ -23,7 +25,7 @@ export default function App() {
   const handleGenerate = async () => {
     setLoading(true)
     try {
-      const response = await axios.post('/api/generate-report', { prompt })
+      const response = await axios.post(`${API_BASE_URL}/api/generate-report`, { prompt })
       setResult(response.data)
       await loadReports()
     } catch (err) {
@@ -73,7 +75,7 @@ export default function App() {
           {result.image_url && (
             <div style={{ marginBottom: 16 }}>
               <img
-                src={result.image_url}
+                src={result.image_url.startsWith('http') ? result.image_url : `${API_BASE_URL}${result.image_url}`}
                 alt={result.vehicle_name}
                 style={{ width: '100%', maxHeight: 520, objectFit: 'cover', borderRadius: 8 }}
               />
