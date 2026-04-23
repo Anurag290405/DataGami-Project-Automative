@@ -1,0 +1,36 @@
+Backend Agent Pipeline
+|
+├── Prompt Enhancer Agent
+│   └── Refines user input with automotive expertise
+│
+├── Research Agent
+│   └── Generates technical facts and market analysis
+│
+├── Writer Agent
+│   └── Produces professional structured report
+│
+├── Memory Agent
+│   └── Stores embeddings and metadata in ChromaDB
+│
+└── Response Agent
+    └── Composes and returns final API response
+
+API Endpoints:
+- POST /api/generate-report (full pipeline)
+- POST /api/enhance-prompt (prompt refinement only)
+- POST /api/store-memory (semantic storage)
+- GET /api/reports (report history)
+- GET /api/health (service status)
+
+Frontend Components:
+- React App with Vite build
+- Prompt form submission
+- Report result viewer
+- Reports dashboard with history
+
+Data Flow:
+User Input → FastAPI Gateway → Agent Orchestrator → Groq LLM
+                                     ↓
+                              ChromaDB Memory Store
+                                     ↓
+                              React Frontend Display

@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv
+venv/
+ENV/
+.env
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+.npm
+.eslintcache
+.stylelintcache
+.vite
+.parcel-cache
+
+# Database/Generated content
+backend/database/generated_images/*
+!backend/database/generated_images/.gitkeep
+backend/database/chroma/
+backend/database/reports/reports.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+.gemini/
+.antigravity/
+
+# Artifacts/Walkthroughs (optional, but often kept out of source control)
+walkthrough.md
+task.md
+implementation_plan.md
+research_notes.md
+experiment_results.md
+analysis_results.md
